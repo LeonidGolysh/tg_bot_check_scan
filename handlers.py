@@ -4,6 +4,7 @@ import traceback
 import os
 
 from ocr import extract_text_from_image, parse_receipt_text
+from sheets_writer import append_to_sheet
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
   await update.message.reply_text("Hello. Send a photo of the receipt")
@@ -27,10 +28,15 @@ async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
       f"Shop: {result['shop']}\n"
       f"Sum: {result['total']}"
     )
+    date = result["date"]
+    shop = result['shop']
+    total = result['total']
+
+    append_to_sheet(date, shop, total)
 
     print("Recognized text: ", result)
     await update.message.reply_text(response, parse_mode="Markdown")
-    
+
   except Exception as e:
     print("Error in OCR: ")
     traceback.print_exc()

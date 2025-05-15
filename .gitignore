@@ -1,5 +1,7 @@
 downlands
 __pycache__
 data
+keys
 .vscode
 .env
+.venv

@@ -4,4 +4,4 @@ data
 keys
 .vscode
 .env
-.venv
+venv

@@ -2,9 +2,9 @@ from PIL import Image
 import pytesseract
 import json
 
-from parser.date_parser import extract_date
-from parser.shop_parser import extract_shop
-from parser.total_parser import extract_total
+from services.parser.date_parser import extract_date
+from services.parser.shop_parser import extract_shop
+from services.parser.total_parser import extract_total
 
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 

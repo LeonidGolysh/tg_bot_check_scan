@@ -2,7 +2,7 @@ from telegram.ext import ApplicationBuilder, MessageHandler, CommandHandler, Con
 from dotenv import load_dotenv
 import os
 
-from handlers import start, handle_photo, handle_confirmation, error_handler
+from handlers.photo_handler import start, handle_photo, handle_confirmation, error_handler
 
 load_dotenv()
 TOKEN = os.getenv("BOT_TOKEN")

@@ -3,8 +3,8 @@ from telegram.ext import ContextTypes
 import traceback
 import os
 
-from ocr import extract_text_from_image, parse_receipt_text
-from sheets_writer import append_to_sheet
+from services.ocr import extract_text_from_image, parse_receipt_text
+from services.sheets_writer import append_to_sheet
 
 user_data_store = {}
 

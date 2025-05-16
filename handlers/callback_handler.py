@@ -7,7 +7,7 @@ async def handle_date_choice(update: Update, context: ContextTypes.DEFAULT_TYPE)
   query = update.callback_query
   await query.answer()
 
-  if query.date == "enter_date":
+  if query.data == "enter_date":
     context.user_data["awaiting_manual_date"] = True
     await query.message.reply_text("Please enter the date (DD-MM-YYYY):")
   elif query.data == "skip_date":

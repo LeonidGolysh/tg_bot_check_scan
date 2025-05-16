@@ -24,7 +24,7 @@ def normalize_date(date_str: str) -> str:
     except ValueError:
       continue
   
-  return f"(Could not parse: {original})"
+  return "Not Found"
 
 def fix_ocr_date_misread(date_str: str) -> str:
   """

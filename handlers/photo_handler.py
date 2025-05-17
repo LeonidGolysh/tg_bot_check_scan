@@ -4,7 +4,6 @@ import traceback
 import os
 
 from services.ocr import extract_text_from_image, parse_receipt_text
-from services.sheets_writer import append_to_sheet
 from handlers.callback_handler import ask_to_save
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):

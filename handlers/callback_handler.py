@@ -7,6 +7,8 @@ async def handle_date_choice(update: Update, context: ContextTypes.DEFAULT_TYPE)
   query = update.callback_query
   await query.answer()
 
+  await query.edit_message_reply_markup(reply_markup=None)
+
   if query.data == "enter_date":
     context.user_data["awaiting_manual_date"] = True
     await query.message.reply_text("Please enter the date (DD-MM-YYYY):")
@@ -16,6 +18,8 @@ async def handle_date_choice(update: Update, context: ContextTypes.DEFAULT_TYPE)
 async def handle_save_choice(update: Update, context: ContextTypes.DEFAULT_TYPE):
   query = update.callback_query
   await query.answer()
+
+  await query.edit_message_reply_markup(reply_markup=None)
 
   if query.data == "save_yes":
     date = context.user_data.get("final_date")

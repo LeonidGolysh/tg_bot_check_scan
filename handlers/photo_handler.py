@@ -4,7 +4,7 @@ import traceback
 import os
 
 from services.ocr import extract_text_from_image, parse_receipt_text
-from handlers.callback_handler import ask_to_save
+from handlers.utils.messages import ask_to_save
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
   await update.message.reply_text("Hello. Send a photo of the receipt")

@@ -9,6 +9,17 @@ async def start_manual_entry(update: Update, context: ContextTypes.DEFAULT_TYPE)
   context.user_data["manual_step"] = "date"
 
 async def handle_manual_entry(update: Update, context: ContextTypes.DEFAULT_TYPE):
+  text = update.message.text.strip()
+
+  if context.user_data.get("awaiting_manual_date"):
+    context.user_data["awaiting_manual_date"] = False
+
+    shop = context.user_data.get("shop", "Not Found")
+    total = context.user_data.get("total", "Not Found")
+
+    await ask_to_save(update, context, extract_date(text), shop, total)
+    return
+
   step = context.user_data.get("manual_step")
 
   if step == "date":

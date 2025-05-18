@@ -6,9 +6,6 @@ import os
 from services.ocr import extract_text_from_image, parse_receipt_text
 from handlers.utils.messages import ask_to_save
 
-async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-  await update.message.reply_text("Hello. Send a photo of the receipt")
-
 async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
   photo = update.message.photo[-1]
   file = await photo.get_file()

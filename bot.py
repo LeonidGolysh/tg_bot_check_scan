@@ -2,9 +2,11 @@ from telegram.ext import ApplicationBuilder, MessageHandler, CommandHandler, fil
 from dotenv import load_dotenv
 import os
 
-from handlers.photo_handler import start, handle_photo, error_handler
-from handlers.callback_handler import handle_date_choice, handle_save_choice
-from handlers.manual_entry import start_manual_entry, handle_manual_entry
+from handlers.commands.start import start
+from handlers.commands.manual_start import start_manual_entry
+from handlers.messages.photo_handler import handle_photo, error_handler
+from handlers.callbacks.callback_handler import handle_date_choice, handle_save_choice
+from handlers.messages.manual_entry import handle_manual_entry
 
 load_dotenv()
 TOKEN = os.getenv("BOT_TOKEN")

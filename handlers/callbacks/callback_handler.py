@@ -2,6 +2,8 @@ from telegram import Update
 from telegram.ext import ContextTypes
 
 from handlers.utils.messages import ask_to_save
+from handlers.messages.manual_entry import handle_manual_entry
+from handlers.commands.search_command import search_by_date
 from services.sheets_writer import append_to_sheet
 
 async def handle_date_choice(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -31,3 +33,9 @@ async def handle_save_choice(update: Update, context: ContextTypes.DEFAULT_TYPE)
     await query.message.reply_text("✅ Saved to Google Sheets.")
   else:
     await query.message.reply_text("❌ Not saved.")
+
+async def handle_user_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
+  if context.user_data.get("manual_step"):
+    await handle_manual_entry(update, context)
+  elif context.user_data.get("awaiting_search_date"):
+    await search_by_date(update, context)

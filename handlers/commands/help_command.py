@@ -6,6 +6,7 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     "*Available Commands:*\n\n"
     "/start - Restart the bot and upload a receipt photo\n"
     "/manual - Manually enter receipt data\n"
+    "/search - Searching data by date\n"
     "/help - Show this help message\n"
   )
   await update.message.reply_text(help_text, parse_mode="Markdown")
